@@ -1,6 +1,6 @@
 # Input ----
 input <-
-  read.table("2023/Inputs/Day1.txt")
+  read.table("2023/Inputs/Day01.txt")
 
 
 # Part 1 ----
