@@ -49,3 +49,5 @@ po/*~
 rsconnect/
 
 2015/*
+
+.DS_Store
