@@ -133,5 +133,52 @@ solution1 <-
 
 
 
+# Partie 2 ----
+
+
+positions <- append(
+  positions,
+  depart
+)
+
+
+library(sf)
+
+X <-
+  regmatches(positions,
+           gregexpr("^[0-9]+",positions)) |> 
+  unlist() |> 
+  as.numeric()
+Y <-
+  regmatches(positions,
+             gregexpr("[0-9]+$",positions)) |> 
+  unlist() |> 
+  as.numeric()
+
+grille <- 
+  st_sf(geometry = st_sfc(st_polygon(list(as.matrix(data.frame(x = X, y = Y))))))
+
+unv.positions <-
+  expand.grid(
+    c(1:n.col),
+    c(1:n.row)
+  ) |> 
+  (\(.){
+    paste(.$Var1,.$Var2,sep =";")
+  })() |> 
+  (\(.){
+    .[. %notin% positions]
+  })()
+
+solution2 <-
+  st_intersects(
+    st_as_sf(data.frame(
+      x = unlist(regmatches(unv.positions,gregexpr("^[0-9]+",unv.positions))),
+      y = unlist(regmatches(unv.positions,gregexpr("[0-9]+$",unv.positions)))
+    ), coords = c("x","y")),
+    grille
+  ) |> 
+  unlist() |> 
+  sum()
 
 
