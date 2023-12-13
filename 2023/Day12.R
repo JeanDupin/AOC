@@ -120,7 +120,6 @@ MAJ.position <- function(i, j, .x, .y){
       positions[i, j] + positions[i + 1, j]
   }
   if (.x[i] %in% c("#","?")){
-    # but is too short, do nothing.
     if (i + next_string > length(.x) + 1){
       
     } else if (i + next_string == length(.x) + 1){
