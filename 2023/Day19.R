@@ -1,6 +1,5 @@
 # Input ----
 
-input = clipr::read_clip()
 input <-
   readLines("2023/Inputs/Day19.txt")
 
