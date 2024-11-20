@@ -10,16 +10,28 @@
 
 🇫🇷 *Advent of Code* est un événement annuel de codage qui consiste en une série de casse-têtes de programmation. Chaque jour, un nouveau défi est publié, et les participants sont chargés de le résoudre en utilisant n'importe quel langage de programmation. Ce dépôt présente mes solutions mises en œuvre en R à ces énigmes.
 
-### Repository Structure / Structure du Dépôt 📦
+### Repository structure / Structure du dépôt 📦
 
 🇬🇧 The repository is structured as follows:
 
 -   **`20XX/`**: Directory for each year's solutions.
-    -   **`Inputs/`**: Subdirectory containing input data for all days.
     -   **`DayXX.R`**: R script for solving the challenge of Day XX.
 
 🇫🇷 Le dépôt est structuré comme suit :
 
 -   **`20XX/`** : Répertoire pour les solutions de chaque année.
-    -   **`Inputs/`** : Sous-répertoire contenant les données d'entrée pour tous les jours.
     -   **`DayXX.R`** : Script R pour résoudre le défi du Jour XX.
+
+### Progress / Progression 🚀
+
+|  📆  | 🌟  |
+|:----:|:---:|
+| 2015 | 20  |
+| 2016 | 14  |
+| 2017 | 24  |
+| 2018 | 00  |
+| 2019 | 00  |
+| 2020 | 00  |
+| 2021 | 00  |
+| 2022 | 00  |
+| 2023 | 38  |
