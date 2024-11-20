@@ -50,3 +50,6 @@ rsconnect/
 
 # Mac file
 .DS_Store
+
+# AOC Inputs
+Inputs/
