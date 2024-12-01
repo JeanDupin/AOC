@@ -51,5 +51,5 @@ rsconnect/
 # Mac file
 .DS_Store
 
-# AOC Inputs
-Inputs/
+# AOC Progress
+progression.R

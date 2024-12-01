@@ -1,5 +1,7 @@
 # 🎄 Advent Of Code Solutions in R 🎅🏼
-[![CodeFactor](https://www.codefactor.io/repository/github/jeandupin/aoc/badge)](https://www.codefactor.io/repository/github/jeandupin/aoc)
+
+[![](https://www.codefactor.io/repository/github/jeandupin/aoc/badge)](https://www.codefactor.io/repository/github/jeandupin/aoc)
+
 ![AOC15](https://img.shields.io/badge/AOC%202015%20%E2%AD%90%EF%B8%8F-20%2F50-%23f54c6b)
 ![AOC16](https://img.shields.io/badge/AOC%202016%20%E2%AD%90%EF%B8%8F-14%2F50-%23f54c6b)
 ![AOC17](https://img.shields.io/badge/AOC%202017%20%E2%AD%90%EF%B8%8F-24%2F50-%23fa887b)
@@ -10,6 +12,8 @@
 ![AOC22](https://img.shields.io/badge/AOC%202022%20%E2%AD%90%EF%B8%8F-00%2F50-%23c0214f)
 ![AOC23](https://img.shields.io/badge/AOC%202023%20%E2%AD%90%EF%B8%8F-38%2F50-%23a0cc79)
 ![AOC24](https://img.shields.io/badge/AOC%202024%20%E2%AD%90%EF%B8%8F-02%2F50-%23c0214f)
+
+----
 
 🇬🇧 This repository contains my solutions to the [Advent of Code](https://adventofcode.com) challenges implemented using **R**.
 
@@ -35,15 +39,4 @@
 
 ### Progress / Progression 🚀
 
-|  📆  | 🌟  |
-|:----:|:---:|
-| 2015 | 20  |
-| 2016 | 14  |
-| 2017 | 24  |
-| 2018 | 13  |
-| 2019 | 00  |
-| 2020 | 29  |
-| 2021 | 00  |
-| 2022 | 00  |
-| 2023 | 38  |
-| 2024 | 02  |
+![](progression.png)
