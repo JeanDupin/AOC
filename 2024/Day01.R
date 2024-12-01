@@ -10,9 +10,17 @@ input <-
 # Partie 1 ----
 
 solution1 <-
-  NA
+  (sort(as.numeric(gsub("^.*   ","",input))) -
+  sort(as.numeric(gsub("   .*$","",input)))) |>
+  abs() |> 
+  sum()
 
 # Partie 2 ----
 
 solution2 <-
-  NA
+  lapply(as.numeric(gsub("   .*$","",input)),
+       function(.x){
+         length(as.numeric(gsub("^.*   ","",input))[as.numeric(gsub("^.*   ","",input)) == .x]) * .x
+       }) |> 
+  unlist() |> 
+  sum()
