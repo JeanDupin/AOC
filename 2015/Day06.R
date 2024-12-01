@@ -1,7 +1,11 @@
 # Input ----
 
 input <-
-  readLines("2015/Inputs/Day06.txt")
+  httr2::request("https://adventofcode.com/2015/day/6/input") |> 
+  httr2::req_cookies_set(session = Sys.getenv("aoc_cookie")) |> 
+  httr2::req_perform() |> 
+  httr2::resp_body_string() |> 
+  (\(.){strsplit(.,"\\n")[[1]]})() 
 
 
 # Partie 1 ----
@@ -91,3 +95,4 @@ for (i in seq_along(fonctions)) {
 
 solution2 <-
   sum(mydf$light)
+

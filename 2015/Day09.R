@@ -1,7 +1,11 @@
 # Input ----
 
 input <-
-  readLines("2015/Inputs/Day09.txt")
+  httr2::request("https://adventofcode.com/2015/day/9/input") |> 
+  httr2::req_cookies_set(session = Sys.getenv("aoc_cookie")) |> 
+  httr2::req_perform() |> 
+  httr2::resp_body_string() |> 
+  (\(.){strsplit(.,"\\n")[[1]]})() 
 
 
 # Partie 1 ----
@@ -51,3 +55,4 @@ solution1 <-
 
 solution2 <-
   max(all_dist)
+

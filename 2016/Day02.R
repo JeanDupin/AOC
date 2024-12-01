@@ -1,7 +1,11 @@
 # Input ----
 
 input <-
-  readLines("2016/Inputs/Day02.txt")
+  httr2::request("https://adventofcode.com/2016/day/2/input") |> 
+  httr2::req_cookies_set(session = Sys.getenv("aoc_cookie")) |> 
+  httr2::req_perform() |> 
+  httr2::resp_body_string() |> 
+  (\(.){strsplit(.,"\\n")[[1]]})()
 
 # Partie 1 ----
 
@@ -115,7 +119,7 @@ solution2 <-
       (\(.){
         `names<-`(.,
                   c("3;5",
-                    "2;4","3;4","3;4",
+                    "2;4","3;4","4;4",
                     "1;3","2;3","3;3","4;3","5;3",
                     "2;2","3;2","4;2",
                     "3;1"))

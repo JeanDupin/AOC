@@ -1,7 +1,11 @@
 # Input ----
 
 input <-
-  readLines("2017/Inputs/Day11.txt")
+  httr2::request("https://adventofcode.com/2017/day/11/input") |> 
+  httr2::req_cookies_set(session = Sys.getenv("aoc_cookie")) |> 
+  httr2::req_perform() |> 
+  httr2::resp_body_string() |> 
+  (\(.){strsplit(.,"\\n")[[1]]})()
 
 # Partie 1 ----
 
@@ -20,7 +24,7 @@ move <-
 
 X = Y = 0
 
-invisible(sapply(strsplit(input,",")[[1]],
+invisible(sapply(strsplit(input,",")[[1]][1],
        move, USE.NAMES = F))
 
 solution1 <-

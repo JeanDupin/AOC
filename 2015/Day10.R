@@ -1,13 +1,15 @@
 # Input ----
 
 # On utilise la table des 92 éléments de Conway
-conway <-
-  read.table("2015/Inputs/Day10.csv",
-             sep = ";", header = T,
-             colClasses = "character")
-conway$id <- 1:nrow(conway)
 input <-
-  conway[conway$Sequence == "3113322113",
+  httr2::request("https://adventofcode.com/2015/day/10/input") |> 
+  httr2::req_cookies_set(session = Sys.getenv("aoc_cookie")) |> 
+  httr2::req_perform() |> 
+  httr2::resp_body_string() |> 
+  (\(.){strsplit(.,"\\n")[[1]]})()
+source("2015/Day10b.R")
+input <-
+  conway[conway$Sequence == input,
          "Element"]
 
 n <-
@@ -26,7 +28,7 @@ for(i in 1:n){
            },
            USE.NAMES = F) |> 
       (\(.){conway[.,"Transformation"]})() |> 
-      strsplit("\\.") |> 
+      strsplit(" ") |>
       unlist()
   
 }; rm(i)
@@ -60,7 +62,7 @@ for(i in 1:n){
            },
            USE.NAMES = F) |> 
     (\(.){conway[.,"Transformation"]})() |> 
-    strsplit("\\.") |> 
+    strsplit(" ") |> 
     unlist()
   
 }; rm(i)
@@ -76,3 +78,4 @@ solution2 <-
   (\(.){conway[.,"Sequence"]})() |> 
   nchar() |> 
   sum()
+

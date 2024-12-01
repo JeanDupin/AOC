@@ -1,7 +1,11 @@
 # Input ----
 
 input <-
-  readLines("2017/Inputs/Day02.txt") |> 
+  httr2::request("https://adventofcode.com/2017/day/2/input") |> 
+  httr2::req_cookies_set(session = Sys.getenv("aoc_cookie")) |> 
+  httr2::req_perform() |> 
+  httr2::resp_body_string() |> 
+  (\(.){strsplit(.,"\\n")[[1]]})() |> 
   (\(.){strsplit(.,"\\t")})()
 
 # Partie 1 ----
