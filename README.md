@@ -1,4 +1,4 @@
-# 🎄 Advent Of Code Solutions in R 🎅🏼
+<h1 align="center"> 🎄 Advent Of Code Solutions in R 🎅🏼 </h1>
 
 [![](https://www.codefactor.io/repository/github/jeandupin/aoc/badge)](https://www.codefactor.io/repository/github/jeandupin/aoc)
 
