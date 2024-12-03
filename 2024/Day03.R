@@ -10,8 +10,8 @@ input <-
 # Partie 1 ----
 
 solution1 <-
-regmatches(input,
-           gregexpr("mul\\(\\d+,\\d+\\)",input)) |> 
+  regmatches(input,
+             gregexpr("mul\\(\\d+,\\d+\\)",input)) |> 
   unlist() |> 
   lapply(
     function(x){
@@ -27,11 +27,12 @@ regmatches(input,
 
 # Partie 2 ----
 
-regmatches(input,
-           gregexpr("(mul\\(\\d+,\\d+\\)|do\\(\\)|don\\'t\\(\\))",input)) |> 
+solution2 <-
+  regmatches(input,
+             gregexpr("(mul\\(\\d+,\\d+\\)|do\\(\\)|don\\'t\\(\\))",input)) |> 
   unlist() |> 
   paste(collapse = "") |> 
-  (\(.){gsub("don\\'t\\(\\).*?do\\(\\)","",.)})() |> 
+  (\(.){gsub("don\\'t\\(\\).*?(do\\(\\)|$)","",.)})() |> 
   (\(.){gsub("do\\(\\)","",.)})() |> 
   (\(.){
     regmatches(.,
@@ -48,10 +49,3 @@ regmatches(input,
   ) |> 
   unlist() |> 
   sum()
-  
-
-  
-
-
-solution2 <-
-  NA
