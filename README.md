@@ -10,7 +10,7 @@
 ![AOC20](https://img.shields.io/badge/AOC%202020%20%E2%AD%90%EF%B8%8F-29%2F50-%23fa887b)
 ![AOC21](https://img.shields.io/badge/AOC%202021%20%E2%AD%90%EF%B8%8F-00%2F50-%23c0214f)
 ![AOC22](https://img.shields.io/badge/AOC%202022%20%E2%AD%90%EF%B8%8F-00%2F50-%23c0214f)
-![AOC23](https://img.shields.io/badge/AOC%202023%20%E2%AD%90%EF%B8%8F-38%2F50-%23a0cc79)
+![AOC23](https://img.shields.io/badge/AOC%202023%20%E2%AD%90%EF%B8%8F-39%2F50-%23a0cc79)
 ![AOC24](https://img.shields.io/badge/AOC%202024%20%E2%AD%90%EF%B8%8F-04%2F50-%23c0214f)
 
 ----
