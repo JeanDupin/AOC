@@ -2,11 +2,8 @@
 
 # On utilise la table des 92 éléments de Conway
 input <-
-  httr2::request("https://adventofcode.com/2015/day/10/input") |> 
-  httr2::req_cookies_set(session = Sys.getenv("aoc_cookie")) |> 
-  httr2::req_perform() |> 
-  httr2::resp_body_string() |> 
-  (\(.){strsplit(.,"\\n")[[1]]})()
+  get_input("https://adventofcode.com/2015/day/10/input") |> 
+  (\(.){strsplit(.,"\\n")[[1]]})() 
 source("2015/Day10b.R")
 input <-
   conway[conway$Sequence == input,

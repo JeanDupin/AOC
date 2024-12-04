@@ -19,6 +19,7 @@
 /*.Rcheck/
 
 # RStudio files
+.proj.user/
 .Rproj.user/
 
 # produced vignettes

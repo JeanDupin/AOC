@@ -1,11 +1,8 @@
 # Input ----
 
 input <-
-  httr2::request("https://adventofcode.com/2017/day/8/input") |> 
-  httr2::req_cookies_set(session = Sys.getenv("aoc_cookie")) |> 
-  httr2::req_perform() |> 
-  httr2::resp_body_string() |> 
-  (\(.){strsplit(.,"\\n")[[1]]})()
+  get_input("https://adventofcode.com/2017/day/8/input") |> 
+  (\(.){strsplit(.,"\\n")[[1]]})() 
 
 
 # Partie 1 ----

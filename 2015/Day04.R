@@ -1,7 +1,8 @@
 # Input ----
 
 input <-
-  "iwrupvqb"
+  get_input("https://adventofcode.com/2015/day/4/input") |> 
+  (\(.){strsplit(.,"\\n")[[1]]})() 
 
 
 # Partie 1 ----
