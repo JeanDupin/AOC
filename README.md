@@ -29,11 +29,13 @@
 
 🇬🇧 The repository is structured as follows:
 
+-   **`.Rprofile`** : File containing the data loading function designed to cache them in accordance with [automation guidelines](https://www.reddit.com/r/adventofcode/wiki/faqs/automation).
 -   **`20XX/`**: Directory for each year's solutions.
     -   **`DayXX.R`**: R script for solving the challenge of Day XX.
 
 🇫🇷 Le dépôt est structuré comme suit :
 
+-   **`.Rprofile`** : Fichier contenant la fonction de chargement des données conçue pour les mettre en cache conformément aux [directives d'automatisation](https://www.reddit.com/r/adventofcode/wiki/faqs/automation).
 -   **`20XX/`** : Répertoire pour les solutions de chaque année.
     -   **`DayXX.R`** : Script R pour résoudre le défi du Jour XX.
 
