@@ -104,7 +104,6 @@ solution1 <-
 
 
 for(j in rev(seq_along(input))){
-  if(j %% 10 == 0){print(j)}
   matrice <-
   matrix(".",71,71)
 
