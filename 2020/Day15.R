@@ -34,24 +34,28 @@ solution1 <-
 numbers <-
   as.numeric(strsplit(input,",")[[1]])
 
-nextnumber = numbers[length(numbers)]
-numbers <- numbers[-length(numbers)]
-times <- c(1:length(numbers))
+nombres = vector("list",30000001)
+nombres[seq_along(nombres)] = -1
 
-i = length(numbers) + 1
-
-while(i <= 30000000){
-  if(!nextnumber %in% numbers){
-    numbers <- append(numbers, nextnumber)
-    times <- append(times,i)
-    nextnumber = 0
-  } else {
-    index = which(numbers == nextnumber)
-    nextnumber = i-times[index]
-    times[index] = i
-  }
-  i = i + 1
+for(i in seq_along(numbers)){
+  nombres[(numbers[i]+1)] = i
 }
 
+i = length(numbers) + 1
+nombre = 0
+
+while(i < 30000001){
+  if(nombres[[(nombre+1)]] != -1){
+    nextnombre = i - nombres[[(nombre+1)]]
+  } else {
+    nextnombre = 0
+  }
+  nombres[[(nombre+1)]] = i
+  i = i + 1
+  nombre = nextnombre
+}
+
+
+
 solution2 <-
-  numbers[which(times == 30000000)]
+  which(unlist(nombres) == 30000000)-1
