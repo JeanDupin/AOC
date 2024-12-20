@@ -11,7 +11,7 @@
 ![AOC21](https://img.shields.io/badge/AOC%202021%20%E2%AD%90%EF%B8%8F-20%2F50-%23fa887b)
 ![AOC22](https://img.shields.io/badge/AOC%202022%20%E2%AD%90%EF%B8%8F-12%2F50-%23f54c6b)
 ![AOC23](https://img.shields.io/badge/AOC%202023%20%E2%AD%90%EF%B8%8F-39%2F50-%23a0cc79)
-![AOC24](https://img.shields.io/badge/AOC%202024%20%E2%AD%90%EF%B8%8F-38%2F50-%23a0cc79)
+![AOC24](https://img.shields.io/badge/AOC%202024%20%E2%AD%90%EF%B8%8F-40%2F50-%2350d690)
 
 ----
 
