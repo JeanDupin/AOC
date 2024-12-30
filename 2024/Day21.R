@@ -155,9 +155,193 @@ solution1 <-
 # Partie 2 ----
 
 
+combinaisons <- list()
+for(i in c("A",0:9)){
+  print(i)
+  for(j in c("A",0:9)){
+    print(j)
+    sequences <-
+      mouvements(i,j) |> 
+      (\(.){strsplit(.,"")[[1]][seq_len(nchar(.)-1)]})() |> 
+      (\(.){unique(unlist(permute(.)))})() |> 
+      paste0("A") 
+    if(i == "A" & j %in% c("1","4","7")){
+      sequences <- sequences[!grepl("^<<",sequences)]
+    }
+    if(i == "7" & j %in% c("0","A")){
+      sequences <- sequences[!grepl("^vvv",sequences)]
+    }
+    if(i == "4" & j %in% c("0","A")){
+      sequences <- sequences[!grepl("^vv",sequences)]
+    }
+    if(i == "1" & j %in% c("0","A")){
+      sequences <- sequences[!grepl("^v",sequences)]
+    }
+    combinaisons[[i]][[j]] <-
+      sequences |> 
+      lapply(function(.x){nchar(get_moves(.x))}) |> 
+      (\(.){sequences[which.min(unlist(.))]})()
+  }
+}
+
+
+test <- function(.x,.y){
+  main_F(.x) |> 
+    (\(.){
+      regmatches(.,
+                 gregexpr(".*?A",.))[[1]]
+    })() |> 
+    table() |> 
+    (\(.){. * .y})()
+}
+
+input = c("029A","980A","179A","456A","379A","003A")
+
+get_all_moves <- function(.x,.y){
+  sequences <-
+    mouvements(.x,.y) |> 
+    (\(.){strsplit(.,"")[[1]][seq_len(nchar(.)-1)]})() |> 
+    (\(.){unique(unlist(permute(.)))})() |> 
+    paste0("A") 
+  
+  
+  if(.x == "A" & .y %in% c("1","4","7")){
+    sequences <- sequences[!grepl("^<<",sequences)]
+  }
+  if(.x == "7" & .y %in% c("0","A")){
+    sequences <- sequences[!grepl("^vvv",sequences)]
+  }
+  if(.x == "4" & .y %in% c("0","A")){
+    sequences <- sequences[!grepl("^vv",sequences)]
+  }
+  if(.x == "1" & .y %in% c("0","A")){
+    sequences <- sequences[!grepl("^v",sequences)]
+  }
+  sequences
+}
+
+solution2 <-
+lapply(
+  input[1],
+  function(.ordre){
+    A = c("A",strsplit(.ordre,"")[[1]])
+    sortie = vector("numeric")
+    for(b in seq_along(A)[-1]){
+      chemins = vector("numeric")
+      for(r in get_all_moves(A[(b-1)],A[b])){
+        print(r)
+        memoire = list()
+        memoire[r] = 1
+        
+        for(z in seq_len(3)){
+          memoire2 = list()
+          for(i in seq_along(memoire)){
+            res = test(names(memoire[i]),memoire[[i]])
+            for(j in seq_along(res)){
+              if(is.null(memoire2[[names(res)[j]]])){
+                memoire2[[names(res)[j]]] = as.numeric(res[j])
+              } else {
+                memoire2[[names(res)[j]]] = as.numeric(res[j] + memoire2[[names(res)[j]]])
+              }
+            }
+          }
+          memoire = memoire2
+        }
+        jean <<- memoire
+        chemins <-
+          lapply(seq_along(memoire),function(.x){nchar(names(memoire[.x])) * memoire[[.x]]}) |> 
+          unlist() |> 
+          sum() |> 
+          (\(.){append(chemins,.)})() 
+      }
+      print(chemins)
+      sortie <-
+        append(sortie,min(chemins))
+    }
+    sum(sortie)
+  }
+) |> 
+  unlist() |> 
+  (\(.){. * as.numeric(gsub("[A-Z]","",input))})() |> 
+  sum()
+
+
+
+
+
+
+memoire = list()
+memoire[combinaisons[["9"]][["A"]]] = 1
+
+for(z in seq_len(2)){
+  memoire2 = list()
+  for(i in seq_along(memoire)){
+    res = test(names(memoire[i]),memoire[[i]])
+    for(j in seq_along(res)){
+      if(is.null(memoire2[[names(res)[j]]])){
+        memoire2[[names(res)[j]]] = as.numeric(res[j])
+      } else {
+        memoire2[[names(res)[j]]] = as.numeric(res[j] + memoire2[[names(res)[j]]])
+      }
+    }
+  }
+  memoire = memoire2
+}
+
+lapply(seq_along(memoire),function(.x){nchar(names(memoire[.x])) * memoire[[.x]]}) |> 
+  unlist() |> 
+  sum()
+
+
+test2 <- function(.in){
+  .in |> 
+    (\(.){mapply(
+      function(.x,.y){
+        test(.y,.x)
+      },
+      .,
+      names(.),
+      SIMPLIFY = F,
+      USE.NAMES = F
+    )})()
+}
+
+
+table(combinaisons[["A"]][["0"]]) |> 
+  test2() |> 
+  (\(.){test2(.[[1]])})()
+
+
+test2(table(combinaisons[["A"]][["0"]])) |> 
+  test2() |> 
+  test2() |> 
+  test2() |> 
+  test2() |> 
+  test2() |> 
+  test2() |> 
+  test2() |> 
+  test2() |> 
+  test2() |> 
+  test2() |> 
+  test2() |> 
+  test2() |> 
+  test2() |> 
+  test2() |> 
+  test2() |> 
+  test2() |> 
+  test2() |> 
+  test2() |> 
+  test2() |> 
+  test2() |> 
+  test2() |> 
+  test2() |> 
+  test2() |> 
+  test2()
+
+
 get_moves <- function(.x){
   x = main_F(.x) 
-  for(i in seq_len(20-1)){
+  for(i in seq_len(25-1)){
     x = main_F(x)
   }
   x
