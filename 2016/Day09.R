@@ -57,5 +57,3 @@ solution1 <-
 
 solution2 <-
   NA
-  
-send_solution(2016,9,2,solution2)
