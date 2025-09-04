@@ -45,5 +45,13 @@ solution1 <-
 
 # Partie 2 ----
 
+molecule <-
+  input[length(input)]
+
+elements <-
+  regmatches(molecule,
+             gregexpr("[A-Z][a-z]?",molecule)) |> 
+  unlist()
+
 solution2 <-
-  NA
+  length(elements) - sum(elements == "Rn") - sum(elements == "Ar") - 2*sum(elements == "Y") - 1

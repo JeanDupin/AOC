@@ -14,32 +14,35 @@ solution1 <-
 
 # Partie 2 ----
 
-gsub("(\\[[^\\{]+?)(red)","\\1blue",input) |> 
-  (\(.){gsub("\\{.+?red.+?\\}","",.)})() |> 
-    (\(.){
-      regmatches(.,
-        gregexpr("(-|)\\d+",.))[[1]]
-    })() |> 
-  as.numeric() |> 
-  sum()
+texte <-
+  jsonlite::fromJSON(input,
+                     simplifyVector = F)
 
-
-gsub("\\{[^\\[]+?red[^\\]]+?\\}","",input)|> 
-  (\(.){
-    regmatches(.,
-      gregexpr("(-|)\\d+",.))[[1]]
-  })() |> 
-as.numeric() |> 
-sum()
-
-
-gsub("\\{[^}]*red[^}]*\\}", "", input) |> 
-  (\(.){
-    regmatches(.,
-      gregexpr("(-|)\\d+",.))[[1]]
-  })() |> 
-as.numeric() |> 
-sum()
+sum_json <- function(x){
+  
+  if(is.null(x)){return(0)}
+  if(is.numeric(x)){return(sum(x))}
+  if(is.integer(x)){return(sum(as.numeric(x)))}
+  if(is.atomic(x) & is.character(x)){return(0)}
+  if(is.logical(x)){return(0)}
+  
+  if(is.list(x)){
+    nom <- names(x)
+    if(!is.null(nom)){
+      for(i in x){
+        if(is.character(i) && any(i == "red")){
+          return(0)
+        }
+      }
+    }
+    suite <- 0
+    for(i in x){
+      suite <- suite + sum_json(i)
+      }
+    return(suite)
+  }
+  return(0)
+}
 
 solution2 <-
-  NA
+  sum_json(parsed)
