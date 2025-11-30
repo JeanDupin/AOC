@@ -12,7 +12,7 @@ get_input <-
   memoise::memoise(function(url){
     httr2::request(url) |> 
       httr2::req_cookies_set(session = Sys.getenv("aoc_cookie")) |> 
-      httr2::req_user_agent("github.com/JeanDupin/AOC") |> 
+      httr2::req_user_agent(Sys.getenv("aoc_user_agent")) |> 
       httr2::req_perform() |> 
       httr2::resp_body_string()
   })
@@ -22,7 +22,7 @@ send_solution <- function(annee, jour, niveau, solution){
   res <-
     httr2::request(paste0("https://adventofcode.com/",annee,"/day/",jour,"/answer")) |> 
     httr2::req_cookies_set(session = Sys.getenv("aoc_cookie")) |> 
-    httr2::req_user_agent("github.com/JeanDupin/AOC") |> 
+    httr2::req_user_agent(Sys.getenv("aoc_user_agent")) |> 
     httr2::req_body_form(level = niveau, answer = solution) |> 
     httr2::req_perform()
 
