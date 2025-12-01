@@ -28,3 +28,26 @@ solution1 <-
 
 # Partie 2 ----
 
+layers <- sapply(input,
+                 function(.x){
+                   regmatches(.x,
+                              gregexpr("\\d+",.x))[[1]] |> 
+                     as.numeric()
+                   }) |> 
+  t()
+depths <-
+  layers[,1]
+ranges <-
+  layers[,2]
+periods = 2 * (ranges - 1)
+
+delay = 0
+
+repeat{
+  if(!any(((depths + delay) %% periods) == 0)){break}
+  delay <- delay + 1L
+}
+
+solution2 <-
+  delay
+
