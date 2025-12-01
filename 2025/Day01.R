@@ -12,15 +12,8 @@ input <-
   (\(.){gsub("L","-",.)})() |> 
   (\(.){c(as.numeric(.))})() 
 
-x = 50
-res = 0
-for(i in seq_along(input)){
-  x <- (x + input[i]) %% 100
-  if(x == 0){res <- res + 1}
-}
-
 solution1 <-
-  res
+  sum(cumsum(c(50,input)) %% 100 == 0)
 
 # Partie 2 ----
 
