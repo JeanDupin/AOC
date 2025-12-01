@@ -10,11 +10,11 @@ input <-
   input |> 
   (\(.){gsub("R","",.)})() |> 
   (\(.){gsub("L","-",.)})() |> 
-  (\(.){c(50,as.numeric(.))})() 
+  (\(.){c(as.numeric(.))})() 
 
 x = 50
 res = 0
-for(i in seq_along(input)[-1]){
+for(i in seq_along(input)){
   x <- (x + input[i]) %% 100
   if(x == 0){res <- res + 1}
 }
@@ -26,9 +26,9 @@ solution1 <-
 
 x = 50
 res = 0
-for(i in seq_along(test)[-1]){
-  res <- res + sum((x:(x+test[i]))[-1] %% 100 == 0)
-  x <- (x + test[i]) %% 100
+for(i in seq_along(input)){
+  res <- res + sum((x:(x+input[i]))[-1] %% 100 == 0)
+  x <- (x + input[i]) %% 100
 }
   
 solution2 <-
