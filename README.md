@@ -2,17 +2,17 @@
 
 [![](https://www.codefactor.io/repository/github/jeandupin/aoc/badge)](https://www.codefactor.io/repository/github/jeandupin/aoc)
 
-![AOC15](https://img.shields.io/badge/AOC%202015%20%E2%AD%90%EF%B8%8F-50%2F50-%23ffd700)
-![AOC16](https://img.shields.io/badge/AOC%202016%20%E2%AD%90%EF%B8%8F-40%2F50-%2350d690)
-![AOC17](https://img.shields.io/badge/AOC%202017%20%E2%AD%90%EF%B8%8F-44%2F50-%2350d690)
-![AOC18](https://img.shields.io/badge/AOC%202018%20%E2%AD%90%EF%B8%8F-18%2F50-%23f54c6b)
-![AOC19](https://img.shields.io/badge/AOC%202019%20%E2%AD%90%EF%B8%8F-21%2F50-%23fa887b)
-![AOC20](https://img.shields.io/badge/AOC%202020%20%E2%AD%90%EF%B8%8F-35%2F50-%23a0cc79)
-![AOC21](https://img.shields.io/badge/AOC%202021%20%E2%AD%90%EF%B8%8F-20%2F50-%23fa887b)
-![AOC22](https://img.shields.io/badge/AOC%202022%20%E2%AD%90%EF%B8%8F-22%2F50-%23fa887b)
-![AOC23](https://img.shields.io/badge/AOC%202023%20%E2%AD%90%EF%B8%8F-39%2F50-%23a0cc79)
-![AOC24](https://img.shields.io/badge/AOC%202024%20%E2%AD%90%EF%B8%8F-50%2F50-%23ffd700)
-[![AOC25](https://img.shields.io/badge/AOC%202025%20%E2%AD%90%EF%B8%8F-02%2F12-%23f54c6b)](https://github.com/JeanDupin/AOC/tree/main/2025)
+[![AOC15](https://img.shields.io/badge/AOC%202015%20%E2%AD%90%EF%B8%8F-50%2F50-%23ffd700)](https://github.com/JeanDupin/AOC/tree/main/2015)
+[![AOC16](https://img.shields.io/badge/AOC%202016%20%E2%AD%90%EF%B8%8F-40%2F50-%2350d690)](https://github.com/JeanDupin/AOC/tree/main/2016)
+[![AOC17](https://img.shields.io/badge/AOC%202017%20%E2%AD%90%EF%B8%8F-44%2F50-%2350d690)](https://github.com/JeanDupin/AOC/tree/main/2017)
+[![AOC18](https://img.shields.io/badge/AOC%202018%20%E2%AD%90%EF%B8%8F-18%2F50-%23f54c6b)](https://github.com/JeanDupin/AOC/tree/main/2018)
+[![AOC19](https://img.shields.io/badge/AOC%202019%20%E2%AD%90%EF%B8%8F-21%2F50-%23fa887b)](https://github.com/JeanDupin/AOC/tree/main/2019)
+[![AOC20](https://img.shields.io/badge/AOC%202020%20%E2%AD%90%EF%B8%8F-35%2F50-%23a0cc79)](https://github.com/JeanDupin/AOC/tree/main/2020)
+[![AOC21](https://img.shields.io/badge/AOC%202021%20%E2%AD%90%EF%B8%8F-20%2F50-%23fa887b)](https://github.com/JeanDupin/AOC/tree/main/2021)
+[![AOC22](https://img.shields.io/badge/AOC%202022%20%E2%AD%90%EF%B8%8F-22%2F50-%23fa887b)](https://github.com/JeanDupin/AOC/tree/main/2022)
+[![AOC23](https://img.shields.io/badge/AOC%202023%20%E2%AD%90%EF%B8%8F-39%2F50-%23a0cc79)](https://github.com/JeanDupin/AOC/tree/main/2023)
+[![AOC24](https://img.shields.io/badge/AOC%202024%20%E2%AD%90%EF%B8%8F-50%2F50-%23ffd700)](https://github.com/JeanDupin/AOC/tree/main/2024)
+[![AOC25](https://img.shields.io/badge/AOC%202025%20%E2%AD%90%EF%B8%8F-02%2F24-%23f54c6b)](https://github.com/JeanDupin/AOC/tree/main/2025)
 
 ----
 
