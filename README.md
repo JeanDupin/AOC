@@ -12,7 +12,7 @@
 [![AOC22](https://img.shields.io/badge/AOC%202022%20%E2%AD%90%EF%B8%8F-22%2F50-%23fa887b)](https://github.com/JeanDupin/AOC/tree/main/2022)
 [![AOC23](https://img.shields.io/badge/AOC%202023%20%E2%AD%90%EF%B8%8F-39%2F50-%23a0cc79)](https://github.com/JeanDupin/AOC/tree/main/2023)
 [![AOC24](https://img.shields.io/badge/AOC%202024%20%E2%AD%90%EF%B8%8F-50%2F50-%23ffd700)](https://github.com/JeanDupin/AOC/tree/main/2024)
-[![AOC25](https://img.shields.io/badge/AOC%202025%20%E2%AD%90%EF%B8%8F-02%2F24-%23f54c6b)](https://github.com/JeanDupin/AOC/tree/main/2025)
+[![AOC25](https://img.shields.io/badge/AOC%202025%20%E2%AD%90%EF%B8%8F-04%2F24-%23f54c6b)](https://github.com/JeanDupin/AOC/tree/main/2025)
 
 ----
 
