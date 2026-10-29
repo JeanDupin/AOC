@@ -24,15 +24,30 @@ solution1 <-
 
 # Partie 2 ----
 
-first_to_last <- function(.x){
-  c(.x[-1],.x[1])
+# Pour un input donné (par exemple 212), voici l'avancement du
+# gagnant :
+# De 1 en 1 à partir de 212/3 = 81
+# Puis de 2 en 2 jusqu'à 212.
+# Le gagnant est par boucle des puissances de 3 (3, 9, 27, 81, 243...)
+# Donc on repart à 1 à chaque puissance de 3, puis on avance de 1 en 1
+# Jusqu'à 2*3^n puis de 2 en 2 jusqu'à la nouvelle puissance de 3.
+
+solve <- function(n){
+  m = 1
+  # On trouve la puissance de 3
+  while(3*m <= n){m = 3*m}
+  # Cas où on aurait n = une puissance de trois
+  if(n == m){
+    n
+  } else if(n <= 2 * m){
+    # Cas où on avance de 1 en 1
+    n-m
+  } else {
+    # Cas où on avance de 2 en 2
+    2*n-3*m
+  }
 }
 
-chaine = seq_len(input)
-while(length(chaine) > 1){
-  chaine <-
-    first_to_last(chaine[-ceiling(1 + length(chaine[-1]) /2)])
-}
 
 solution2 <-
-  chaine
+  solve(input)
