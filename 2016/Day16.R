@@ -43,5 +43,30 @@ solution1 <-
 
 # Partie 2 ----
 
+# Passage avec TRUE et FALSE pour pouvoir vectoriser les fonctions
+# Reconversion en 1 et 0 à la fin
+
+next_step <- function(x){
+  c(x, F, rev(!x))
+}
+
+checksum <- function(x){
+  n <- length(x)
+  x[seq(1, n, 2)] == x[seq(2, n, 2)]
+}
+
+solve <- function(.x, .size){
+  init <-
+    strsplit(.x,"")[[1]] == "1"
+  while(length(init) <= .size) {
+    init <- next_step(init)
+  }
+  init = init[seq_len(.size)]
+  while(length(init) %% 2 == 0){
+    init = checksum(init)
+  }
+  paste(as.integer(init), collapse = "")
+}
+
 solution2 <-
-  NA
+  solve(input, 35651584)
