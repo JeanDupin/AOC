@@ -80,51 +80,89 @@ move <- function(X, Y, mot){
   paste(mot, collapse = "")
 }
 
-password = "abcdefgh"
-for(i in seq_along(input)){
-  if(grepl("^swap position",input[i])){
-    indices <-
-      regmatches(input[i],
-                 gregexpr("\\d+",input[i]))[[1]] |> 
-      (\(.){as.numeric(.) + 1})()
-    password = swap_positions(indices[1],indices[2],password)
-  } else if(grepl("^swap letter",input[i])){
-    indices <-
-      regmatches(input[i],
-                 gregexpr("letter [a-z]",input[i]))[[1]] |> 
-      (\(.){gsub("letter ","",.)})()
-    password = swap_letters(indices[1],indices[2],password)
-  } else if(grepl("^rotate [left|right]",input[i])){
-    sens <-
-      ifelse(grepl("right",input[i]),"right","left")
-    indice <-
-      regmatches(input[i],
-                 gregexpr("\\d+",input[i]))[[1]] |> 
-      as.numeric()
-    password <- rotate(sens, indice, password)
-  } else if(grepl("^rotate based",input[i])){
-    indice <-
-      gsub("^.* ","",input[i])
-    password <- rotate_based(indice,password)
-  } else if(grepl("^reverse",input[i])){
-    indices <-
-      regmatches(input[i],
-                 gregexpr("\\d+",input[i]))[[1]] |> 
-      (\(.){as.numeric(.) + 1})()
-    password = reverse(indices[1],indices[2],password)
-  } else if(grepl("^move",input[i])){
-    indices <-
-      regmatches(input[i],
-                 gregexpr("\\d+",input[i]))[[1]] |> 
-      (\(.){as.numeric(.) + 1})()
-    password = move(indices[1],indices[2],password)
+solve <- function(x){
+  
+  for(i in seq_along(input)){
+    
+    ligne <- input[i]
+    
+    if(grepl("^swap position", ligne)){
+      indices <-
+        regmatches(ligne, gregexpr("\\d+", ligne))[[1]] |>
+        (\(.){as.numeric(.) + 1})()
+      x <- swap_positions(indices[1], indices[2], x)
+      
+    }else if(grepl("^swap letter", ligne)){
+      indices <-
+        regmatches(ligne, gregexpr("letter [a-z]", ligne))[[1]] |>
+        (\(.){gsub("letter ", "", .)})()
+      x <- swap_letters(indices[1], indices[2], x)
+      
+    }else if(grepl("^rotate (left|right)", ligne)){
+      sens <- ifelse(grepl("right", ligne), "right", "left")
+      indice <-
+        regmatches(ligne, gregexpr("\\d+", ligne))[[1]] |>
+        as.numeric()
+      x <- rotate(sens, indice, x)
+      
+    }else if(grepl("^rotate based", ligne)){
+      indice <- gsub("^.* ", "", ligne)
+      x <- rotate_based(indice, x)
+      
+    }else if(grepl("^reverse", ligne)){
+      indices <-
+        regmatches(ligne, gregexpr("\\d+", ligne))[[1]] |>
+        (\(.){as.numeric(.) + 1})()
+      x <- reverse(indices[1], indices[2], x)
+      
+    }else if(grepl("^move", ligne)){
+      indices <-
+        regmatches(ligne, gregexpr("\\d+", ligne))[[1]] |>
+        (\(.){as.numeric(.) + 1})()
+      x <- move(indices[1], indices[2], x)
+      
+    }
   }
+  
+  x
 }
 
+password = "abcdefgh"
+
 solution1 <-
-  password
+  solve(password)
 
 # Partie 2 ----
 
+permuter <- function(.x){
+  if(length(.x) == 1){return(list(.x))}
+  
+  lapply(seq_along(.x), function(.y){
+    lapply(permuter(.x[-.y]), function(.z){
+      c(.x[.y],.z)
+    })
+  }) |> 
+    unlist(recursive = FALSE)
+}
+
+anagramme <- function(.x){
+  lettres <- strsplit(.x, "")[[1]]
+  sapply(permuter(lettres),
+         paste, collapse = "",
+         simplify = T, USE.NAMES = F) |> 
+    unique()
+}
+
+passwords <-
+  anagramme(password)
+
+res = ""
+
+for(i in seq_along(passwords)){
+  if(i %% 1000 == 0){print(i)}
+  res <- solve(passwords[[i]])
+  if(res == "fbgdceah"){break}
+}
+
 solution2 <-
-  NA
+  passwords[i]
